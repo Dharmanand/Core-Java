@@ -1,0 +1,17 @@
+Checkin to a Branch(steps):
+ 
+1. Update the project directories with new changes. Now types the follwing commands
+2. git status(see changes)
+3. git branch(see all branchs, here with * and green color will show the active branch)
+4. git branch new_branchName(create a new branch)
+5. git checkout branchName(make active to a branch)
+6. git branch(check status for active)
+7. git add -A(for all changes add to bransh)
+8. git push gitURL.
+
+------------***********Others way to commit the changes******--------------------------------
+1. git init
+2. git add -A
+3. git commit -m "add files.."
+4. git remote add github gitURL
+5. git push -f github branch_name
