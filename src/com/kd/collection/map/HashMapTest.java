@@ -6,7 +6,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
+/**
+ * 
+ * @author Kumar
+ *
+ * @param <K>
+ * @param <V>
+ */
 public class HashMapTest<K, V> {
 
 	public static void main(String[] args) {
