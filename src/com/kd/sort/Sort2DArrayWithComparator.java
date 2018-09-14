@@ -1,4 +1,4 @@
-package com.kd.test.sort.array;
+package com.kd.sort;
 
 import java.util.Arrays;
 import java.util.Comparator;
