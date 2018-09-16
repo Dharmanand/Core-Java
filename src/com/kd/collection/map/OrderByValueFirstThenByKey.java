@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+// sort a map by value in descending order, if value are same then sort by key in ascending order. 
+
 public class OrderByValueFirstThenByKey {
 
 	public static void main(String[] args) {
