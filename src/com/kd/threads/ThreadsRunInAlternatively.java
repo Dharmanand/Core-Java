@@ -4,6 +4,8 @@ package com.kd.threads;
  * 
  * @author Kumar 
  * 
+ * Two thread print no alternatively (one after another)
+ * 
  * Example:  
  * 		Thread-0  --> 1
  * 		Thread-1  --> 2
