@@ -2,16 +2,16 @@ package com.kd.threads;
 
 /**
  * 
- * @author Kumar 
+ * @author Kumar
  * 
- * Two thread print no alternatively (one after another)
+ *         Two thread print no's alternatively (one after another)
  * 
- * Example:  
- * 		Thread-0  --> 1
- * 		Thread-1  --> 2
- * 		Thread-0  --> 3
- * 		Thread-1  --> 4 
- * 		......so on.
+ *         Example: 
+ *         		Thread-0 --> 1 
+ *         		Thread-1 --> 2 
+ *         		Thread-0 --> 3 
+ *         		Thread-1 --> 4
+ *         		......so on.
  */
 public class ThreadsRunInAlternatively {
 
@@ -34,7 +34,7 @@ public class ThreadsRunInAlternatively {
 			}
 		};
 
-		Thread t1 =  new Thread(task);
+		Thread t1 = new Thread(task);
 		Thread t2 = new Thread(task);
 		t1.start();
 		t2.start();
@@ -45,15 +45,10 @@ public class ThreadsRunInAlternatively {
 		synchronized (lock) {
 			for (i = 0; i <= 100; i++) {
 				lock.notify();
-				if (i > 0) {
-					if (i % 2 != 0) {
-						System.out.println("Thread Name: " + Thread.currentThread() + "--" + i);
-					} else {
-						System.out.println("Thread Name: " + Thread.currentThread() + "--" + i);
-					}
-					lock.wait();
-				}else
-					lock.wait();
+				if (i > 0)
+					System.out.println("Thread Name: " + Thread.currentThread() + "--" + i);
+				lock.wait();
+
 			}
 			lock.notify();
 		}
