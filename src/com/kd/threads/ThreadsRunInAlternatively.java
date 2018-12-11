@@ -43,14 +43,13 @@ public class ThreadsRunInAlternatively {
 
 	public static void execute() throws InterruptedException {
 		synchronized (lock) {
-			for (int i = 0; i <= 100; i++) {
+			for (int i = 1; i <= 100; i++) {
 				lock.notify();
-				if (i > 0)
-					if(i%2 != 0 && Thread.currentThread().getName().equalsIgnoreCase("Thread-0")) {
-						System.out.println("Thread Name: " + Thread.currentThread().getName() + "--" + i);
-					} else if(i%2 == 0 && Thread.currentThread().getName().equalsIgnoreCase("Thread-1")){
-						System.out.println("Thread Name: " + Thread.currentThread().getName() + "--" + i);
-					}
+				if (i % 2 != 0 && Thread.currentThread().getName().equalsIgnoreCase("Thread-0")) {
+					System.out.println("Thread Name: " + Thread.currentThread().getName() + "--" + i);
+				} else if (i % 2 == 0 && Thread.currentThread().getName().equalsIgnoreCase("Thread-1")) {
+					System.out.println("Thread Name: " + Thread.currentThread().getName() + "--" + i);
+				}
 				lock.wait();
 			}
 			lock.notify();
