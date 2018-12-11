@@ -15,7 +15,7 @@ package com.kd.threads;
  */
 public class ThreadsRunInAlternatively {
 
-	public static volatile Integer i;
+//	public static volatile Integer i;
 	static Object lock = new Object();
 
 	public static void main(String[] args) throws InterruptedException {
@@ -36,19 +36,22 @@ public class ThreadsRunInAlternatively {
 
 		Thread t1 = new Thread(task);
 		Thread t2 = new Thread(task);
-		t1.start();
 		t2.start();
+		t1.start();
 
 	}
 
 	public static void execute() throws InterruptedException {
 		synchronized (lock) {
-			for (i = 0; i <= 100; i++) {
+			for (int i = 0; i <= 100; i++) {
 				lock.notify();
 				if (i > 0)
-					System.out.println("Thread Name: " + Thread.currentThread() + "--" + i);
+					if(i%2 != 0 && Thread.currentThread().getName().equalsIgnoreCase("Thread-0")) {
+						System.out.println("Thread Name: " + Thread.currentThread().getName() + "--" + i);
+					} else if(i%2 == 0 && Thread.currentThread().getName().equalsIgnoreCase("Thread-1")){
+						System.out.println("Thread Name: " + Thread.currentThread().getName() + "--" + i);
+					}
 				lock.wait();
-
 			}
 			lock.notify();
 		}
