@@ -4,14 +4,14 @@ package com.kd.threads;
  * 
  * @author Kumar
  * 
- * Two thread print no alternatively (one after another)
+ *         Two thread print no's alternatively (one after another)
  * 
- * Example:  
- * 		Thread-0  --> 1
- * 		Thread-1  --> 2
- * 		Thread-0  --> 3
- * 		Thread-1  --> 4 
- * 		......so on.
+ *         Example: 
+ *         		Thread-0 --> 1 
+ *         		Thread-1 --> 2 
+ *         		Thread-0 --> 3 
+ *         		Thread-1 --> 4
+ *         		......so on.
  */
 public class ThreadsRunInAlternatively {
 
