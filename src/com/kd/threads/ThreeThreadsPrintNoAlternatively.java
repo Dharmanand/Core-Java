@@ -45,9 +45,9 @@ public class ThreeThreadsPrintNoAlternatively {
                             monitor.notifyAll();
                         }
                         if(number >= 100) {
+                        	exit = true;
                         	monitor.notifyAll();
                         	Thread.currentThread().stop();
-                        	exit = true;
                         }
                     }
                 }
