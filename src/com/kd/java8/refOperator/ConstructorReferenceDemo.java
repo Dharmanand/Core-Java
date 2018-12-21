@@ -19,7 +19,7 @@ public class ConstructorReferenceDemo {
 		System.out.println("From Arg contructor value passed: " + i);
 	}
 
-	public ConstructorReferenceDemo(int i, long l) {
+	public ConstructorReferenceDemo(int i, String l) {
 		System.out.println("From Multi Arg contructor 1st and 2nd value passed respectivly: " + i + " and " + l);
 	}
 
@@ -29,7 +29,7 @@ public class ConstructorReferenceDemo {
 		ArgConstructInterf ci1 = ConstructorReferenceDemo::new;
 		ci1.m1(10);
 		MultiArgConstructInterf ci2 = ConstructorReferenceDemo::new;
-		ci2.m1(5, 10);
+		ci2.m1(5, "Kumar");
 	}
 
 }
@@ -43,5 +43,5 @@ interface ArgConstructInterf {
 }
 
 interface MultiArgConstructInterf {
-	void m1(int i, long j);
+	void m1(int i, String j);
 }
