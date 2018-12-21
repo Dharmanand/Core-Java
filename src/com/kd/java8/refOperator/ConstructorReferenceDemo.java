@@ -24,10 +24,13 @@ public class ConstructorReferenceDemo {
 	}
 
 	public static void main(String[] args) {
+//		No Arg constructor reference
 		NoConstructInterf ci = ConstructorReferenceDemo::new;
 		ci.m1();
+//		Single Arg constructor reference
 		ArgConstructInterf ci1 = ConstructorReferenceDemo::new;
 		ci1.m1(10);
+//		Multi Arg constructor reference
 		MultiArgConstructInterf ci2 = ConstructorReferenceDemo::new;
 		ci2.m1(5, "Kumar");
 	}
