@@ -18,9 +18,20 @@ public class ListStreamDemo {
 //		Filtering elements using filter and iterating by forEach method
 		list.stream().filter(i -> (i%2 != 0)).collect(Collectors.toList()).forEach(i->System.out.println(i));
 		System.out.println("-----");
-//		mapping elements using map and iterating by foeEach
+//		mapping elements using map and iterating by forEach
 		list.stream().map(i -> (i*2)).collect(Collectors.toList()).forEach(i->System.out.println(i));
-		
+		System.out.println("---Ascending order--");
+//		sorting elements using sorted method and iterating by forEach
+		list.stream().sorted().collect(Collectors.toList()).forEach(i->System.out.println(i));
+		System.out.println("---Descending order sorting elements--");
+//		Descending order sorting elements using sorted method and iterating by forEach
+		list.stream().sorted((i1, i2) -> i2.compareTo(i1)).collect(Collectors.toList()).forEach(i->System.out.println(i));
+//		Find min value in list
+		Integer l1 = list.stream().min((i1,i2) -> i1.compareTo(i2)).get();
+		System.out.println("Min value: "+l1);
+//		Find max value in list
+		Integer l2 = list.stream().max((i1,i2) -> i1.compareTo(i2)).get();
+		System.out.println("Max value: "+l2);
 		
 	}
 
