@@ -26,10 +26,10 @@ public class ListStreamDemo {
 		System.out.println("---Descending order sorting elements--");
 //		Descending order sorting elements using sorted method and iterating by forEach
 		list.stream().sorted((i1, i2) -> i2.compareTo(i1)).collect(Collectors.toList()).forEach(i->System.out.println(i));
-//		Find min value in list
+//		Find min value in list, Note: list should be sorted in natural sorting order(ascending order).
 		Integer l1 = list.stream().min((i1,i2) -> i1.compareTo(i2)).get();
 		System.out.println("Min value: "+l1);
-//		Find max value in list
+//		Find max value in list, Note: list should be sorted in natural sorting order(ascending order).
 		Integer l2 = list.stream().max((i1,i2) -> i1.compareTo(i2)).get();
 		System.out.println("Max value: "+l2);
 		
