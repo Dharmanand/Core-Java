@@ -17,22 +17,22 @@ public class TestRepetableCharPermutation {
 
 	public Object[] getPermutationsWithRepetition(String s)
     {
-        List<String> permutations = new ArrayList<>();
+        List<String> permutationsList = new ArrayList<>();
         this.GetPermutationsWithRepetitionRecursive(s, "",
-            permutations);
-        return permutations.toArray();
+        		permutationsList);
+        return permutationsList.toArray();
     }
 	
-    void GetPermutationsWithRepetitionRecursive(String s, String permutation, List<String> permutations)
+    void GetPermutationsWithRepetitionRecursive(String s, String permutation, List<String> permutationsList)
     {
         if(permutation.length() == s.length())
         {
-            permutations.add(permutation);
+        	permutationsList.add(permutation);
             return;
         }
         for(int i =0;i<s.length();i++)
         {
-            this.GetPermutationsWithRepetitionRecursive(s, permutation + s.charAt(i), permutations);
+            this.GetPermutationsWithRepetitionRecursive(s, permutation + s.charAt(i), permutationsList);
         }
     }
 	
