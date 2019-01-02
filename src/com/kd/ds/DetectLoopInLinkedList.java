@@ -9,7 +9,7 @@ import java.util.HashSet;
  * @author Kumar
  *
  * Using Hashing: Traverse the list one by one and keep putting the node addresses 
- *				  in a Hash Table(used here HashSet). At any point, if NULL is reached 
+ *				  in a Hash Table(here I used HashSet). At any point, if NULL is reached 
  *				  then return false and if next of current node points to any of the 
  *				  previously stored nodes in Hash then return true.
  *
