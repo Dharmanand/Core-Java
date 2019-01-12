@@ -1,0 +1,37 @@
+Key Differences Between Semaphore and Mutex
+
+    Semaphore is a signalling mechanism as wait() and signal() operation performed on 
+    semaphore variable indicates whether a process is acquiring the resource or 
+    releasing the resource. On the other hands, the mutex is a locking mechanism, as 
+    to acquire a resource, a process needs to lock the mutex object and while 
+    releasing a resource process has to unlock mutex object.
+    
+    Semaphore is typically an integer variable whereas, mutex is an object.
+    
+    Semaphore allows multiple program threads to access the finite instance of 
+    resources. On the other hands, Mutex allows multiple program threads to access 
+    a single shared resource but one at a time.
+    
+    Semaphore variable value can be modified by any process that acquires or releases 
+    resource by performing wait() and signal() operation. On the other hands, lock 
+    acquired on the mutex object can be released only by the process that has acquired 
+    the lock on mutex object.
+    
+    Semaphore are of two types counting semaphore and binary semaphore which is quite 
+    similar to the mutex.
+    
+    Semaphore variable value is modified by wait() and signal() operation apart from 
+    initialization. However, the mute object is locked or unlocked by the process 
+    acquiring or releasing the resource.
+    
+    If all the resources are acquired by the process, and no resource is free then the 
+    process desiring to acquire resource performs wait() operation on semaphore 
+    variable and blocks itself till the count of semaphore become greater than 0. 
+    But if a mutex object is already locked then the process desiring to acquire 
+    resource waits and get queued by the system till the resource is released and 
+    mutex object gets unlocked.
+
+Conclusion:
+
+Semaphore is a better option in case there are multiple instances of resources 
+available. In the case of single shared resource mutex is a better choice.
