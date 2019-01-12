@@ -1,3 +1,22 @@
+-In simple terms, the reasons are as follows.
+
+    1. Object has monitors.
+    2. Multiple threads can access one Object. Only one thread can hold object monitor at a time for 
+       synchronized methods/blocks.
+    
+    3. wait(), notify() and notifyAll() method being in Object class allows all the threads created 
+       on that object to communicate with others.
+    
+    4. Locking ( using synchronized or Lock API) and Communication (wait() and notify()) are two different concepts.
+
+-If Thread class contains wait(), notify() and notifyAll() methods, then it will create below problems:
+
+    1. Thread communication problem
+    2. Synchronization on object won’t be possible. If each thread will have monitor, we won’t have any 
+       way of achieving synchronization
+    3. Inconsistency in state of object
+
+-----------------------------------------------------------------------------------------------------------------
 In the Java language, you wait() on a particular instance of an Object – a monitor assigned to 
 that object to be precise. If you want to send a signal to one thread that is waiting on 
 that specific object instance then you call notify() on that object. If you want to send a 
