@@ -1,0 +1,48 @@
+In the Java language, you wait() on a particular instance of an Object – a monitor assigned to 
+that object to be precise. If you want to send a signal to one thread that is waiting on 
+that specific object instance then you call notify() on that object. If you want to send a 
+signal to all threads that are waiting on that object instance, you use notifyAll() on that object.
+
+If wait() and notify() were on the Thread instead then each thread would have to know the status 
+of every other thread. How would thread1 know that thread2 was waiting for access to a particular 
+resource? If thread1 needed to call thread2.notify() it would have to somehow find out that thread2 
+was waiting. There would need to be some mechanism for threads to register the resources or actions 
+that they need so others could signal them when stuff was ready or available.
+
+In Java, the object itself is the entity that is shared between threads which allows them to 
+communicate with each other. The threads have no specific knowledge of each other and they can run 
+asynchronously. They run and they lock, wait, and notify on the object that they want to get access to. 
+They have no knowledge of other threads and don't need to know their status. They don't need to know 
+that it is thread2 which is waiting for the resource – they just notify on the resource and whomever 
+it is that is waiting (if anyone) will be notified.
+
+In Java, we then use lock objects as synchronization, mutex, and communication points between threads. 
+We synchronize on a lock object to get mutex access to an important code block and to synchronize memory. 
+We wait on an object if we are waiting for some condition to change – some resource to become available. 
+We notify on an object if we want to awaken sleeping threads.
+
+// locks should be final objects so the object instance we are synchronizing on,
+// never changes
+private final Object lock = new Object();
+...
+// ensure that the thread has a mutex lock on some key code
+synchronized (lock) {
+    ...
+    // i need to wait for other threads to finish with some resource
+    // this releases the lock and waits on the associated monitor
+    lock.wait();
+    ...
+    // i need to signal another thread that some state has changed and they can
+    // awake and continue to run
+    lock.notify();
+}
+
+There can be any number of lock objects in your program – each locking a particular resource or code segment. 
+You might have 100 lock objects and only 4 threads. As the threads run the various parts of the program, 
+they get exclusive access to one of the lock objects. Again, they don't have to know the running status 
+of the other threads.
+
+This allows you to scale up or down the number of threads running in your software as much as you want. 
+You find that the 4 threads is blocking too much on outside resources, then you can increase the number. 
+Pushing your battered server too hard then reduce the number of running threads. The lock objects ensure 
+mutex and communication between the threads independent on how many threads are running.
