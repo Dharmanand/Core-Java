@@ -1,0 +1,32 @@
+Key Differences Between Sleep and Wait Method in Java
+
+    The main point that distinguishes the sleep and wait method is that sleep method 
+    holds the lock on the object till it is interrupted or its time expires. 
+    However, the wait method releases the lock on the object that invokes it and 
+    gives other objects the chance to execute.
+    
+    The sleep method is defined in the Thread class whereas, the wait method is 
+    defined in the Object class.
+    
+    The sleep method need not be called from synchronised context. But the wait 
+    method needs to be called from synchronised.
+    
+    The sleep method is awakened if the time of the method is expired or it is 
+    interrupted by the other thread. The wait method is awakened when the notify 
+    or notifyAll method is invoked.
+    
+    The sleep method is static method whereas, the wait method is not a static method.
+    
+    The sleep method is executed on the current thread whereas, the wait method is 
+    executed on the object that invokes it.
+    
+    The exception thrown by sleep  method is InterruptedException whereas the 
+    exceptions thrwon by wait method are IllegalArgumentException, 
+    IllegalMonitorStateException, InterruptedException.
+
+
+Conclusion:
+
+When multiple threads are wants to use the same resource one by one, then the wait 
+method must be used. When a thread does not want to perform any task, then sleep 
+method must be used.
