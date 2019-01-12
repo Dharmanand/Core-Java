@@ -1,0 +1,156 @@
+Key Differences Between Thread and Runnable in Java
+
+    Each thread created by extending the Thread class creates a unique object for 
+    it and get associated with that object. On the other hand, each thread created 
+    by implementing a Runnable interface share the same runnable instance.
+    
+    As each thread is associated with a unique object when created by extending 
+    Thread class, more memory is required. On the other hand, each thread created 
+    by implementing Runnable interface shares same object space hence, 
+    it requires less memory.
+    
+    If you extend the Thread class then further, you can inherit any other class 
+    as Java do not allow multiple inheritance whereas, implementing Runnable still 
+    provide a chance for a class to inherit any other class.
+    
+    One must extend a Thread class only if it has to override or specialise some 
+    other methods of Thread class. You must implement a Runnable interface if you 
+    only want to specialise run method only.
+    
+    Extending the Thread class introduces tight coupling in the code as the code of
+    Thread and job of thread is contained by the same class. On the other hand, 
+    Implementing Runnable interface introduces loose coupling in the code as the 
+    code of Thread is seprate from the job assigned to the thread.
+
+ Difference between Thread Class and Runnable Interface in Java
+
+August 8, 2016 Leave a Comment
+
+Thread-Vs-RunnableA thread can be defined in two ways. First, by extending a Thread class that has already implemented a Runnable interface. Second, by directly implementing a Runnable interface. When you define a thread by extending Thread class you have to override the run() method in Thread class. When you define a thread implementing a Runnable interface you have to implement the only run() method of Runnable interface. The basic difference between Thread and Runnable is that each thread defined by extending Thread class creates a unique object and get associated with that object. On the other hand, each thread defined by implementing Runnable interface shares the same object.
+
+Let us observe some other differences between Thread and Runnable with the help of comparison chart shown below:
+Content: Thread Vs Runnable
+
+    Comparison Chart
+    Definition
+    Key Differences
+    Conclusion
+
+Comparison Chart
+
+Basis for Comparison	Thread	Runnable
+Basic	Each thread creates a unique object and gets associated with it.	Multiple threads share the same objects.
+Memory 	As each thread create a unique object, more memory required.	As multiple threads share the same object less memory is used.
+Extending	In Java, multiple inheritance not allowed hence, after a class extends Thread class, it can not extend any other class.	If a class define thread implementing the Runnable interface it has a chance of extending one class.
+Use 	A user must extend thread class only if it wants to override the other methods in Thread class.	If you only want to specialize run method then implementing Runnable is a better option.
+Coupling 	Extending Thread class introduces tight coupling as the class contains code of Thread class and also the job assigned to the thread	Implementing Runnable interface introduces loose coupling as the code of Thread is separate form the job of Threads.
+
+Definition of Thread Class
+
+Thread is a class in java.lang package. The Thread class extends an Object class, and it implements Runnable interfaces. The Thread class has constructors and methods to create and operate on the thread. When we create multiple threads, each thread creates a unique object and get associated with that object. If you create a thread extending Thread class, further you can not extend any other class as java does not support multiple inheritance. So, you should choose to extend Thread class only when you also want to override some other methods of Thread class. Let us see an example of creating a thread extending a Thread class.
+
+    /*Defining a thread*/
+    Class Mythread extends Thread{
+    /* job of the thread*/
+    public void run(){
+    for(int i=0; i<10; i++){
+    System.Out.Println("Child Thread");
+    }
+    }
+    Class mainThread{
+    /* job of main thread*/
+    public static void main(String args[ ]){
+    Mythread mt = new Mythread(); /* main thread created the child thread*/
+    mt.start();
+    for(int i=0; i<10; i++){
+    System.Out.Print("Main Thread");
+    }
+    }
+    }
+    /*Output*/
+    Main Thread
+    Main Thread
+    Main Thread
+    Main Thread
+    Child Thread
+    Child Thread
+    Child Thread
+    Child Thread
+    Child Thread
+    Main Thread
+    Child Thread
+    Main Thread
+    Main Thread
+    Child Thread
+    Child Thread
+    Main Thread
+    Main Thread
+    Child Thread
+    Child Thread
+    Main Thread
+
+In the code above, I create a class Mythread that extends Thread class and overrides a run method of Thread class. In the class containing the main method I create a thread object (mt) of Mythread class and using the thread object invoked the start( ) method. The start method starts the execution of the thread and at the same time JVM invokes the run method of the thread. Now there are two threads in the program one main thread and second child thread created by the main thread. The execution of both the threads occurs simultaneously, but, the exact output can not be pretended.
+Definition of Runnable Interface
+
+Runnable is an interface in java.lang package. Implementing Runnable interface we can define a thread. Runnable interface has a single method run(), which is implemented by the class that implements Runnable interface. When you choose to define thread implementing a Runnable interface you still have a choice to extend any other class. When you create multiple threads by implementing Runnable interface, each thread shares the same runnable instance. let us learn how to define a thread using Runnable interface.
+
+    /*Defining a thread*/
+    Class Runnablethread implements Runnable{
+    /* job of the thread*/
+    public void run(){
+    for(int i=0; i<10; i++){
+    System.Out.Println("Child Thread");
+    }
+    }
+    Class mainThread{
+    /* job of main thread*/
+    public static void main(String args[ ]){
+    Mythread rt = new Mythread(); /* main thread created the runnable object*/
+    Thread t = new Thread(rt); /*main thread creates child thread and passed the runnable object*/
+    t.start();
+    for(int i=0; i<10; i++){
+    System.Out.Print("Main Thread");
+    }
+    }
+    }
+    /*Output*/
+    Main Thread
+    Main Thread
+    Main Thread
+    Main Thread
+    Child Thread
+    Child Thread
+    Child Thread
+    Child Thread
+    Child Thread
+    Main Thread
+    Child Thread
+    Main Thread
+    Main Thread
+    Child Thread
+    Child Thread
+    Main Thread
+    Main Thread
+    Child Thread
+    Child Thread
+    Main Thread
+
+In the code above, I created a class Runnablethread that implements Runnable interface and defines the job of the thread by implementing the run() method of the Runnable interface. Then I create a class mainthread containing the main method. Inside the main method, I declared a runnable object of the class Runnablethread and passed this object to the Thread’s constructor while declaring a thread. In this way, I linked the thread object (t) with a runnable object (rt). Then the thread object invokes start method of the thread which further invokes run method of the Runnablethread class. If I had not linked runnable object with Thread object, then the threads start method would have invoked the run method of Thread class. Now, again the there are two threads in the code, main thread and main thread creates child thread both get executed simultaneously but exact output can never be pretended.
+
+Key Differences Between Thread and Runnable in Java
+
+    Each thread created by extending the Thread class creates a unique object for it and get associated with that object. On the other hand, each thread created by implementing a Runnable interface share the same runnable instance.
+    As each thread is associated with a unique object when created by extending Thread class, more memory is required. On the other hand, each thread created by implementing Runnable interface shares same object space hence, it requires less memory.
+    If you extend the Thread class then further, you can inherit any other class as Java do not allow multiple inheritance whereas, implementing Runnable still provide a chance for a class to inherit any other class.
+    One must extend a Thread class only if it has to override or specialise some other methods of Thread class. You must implement a Runnable interface if you only want to specialise run method only.
+    Extending the Thread class introduces tight coupling in the code as the code of Thread and job of thread is contained by the same class. On the other hand, Implementing Runnable interface introduces loose coupling in the code as the code of Thread is seprate from the job assigned to the thread.
+
+Conclusion:
+
+It is preferred to implement a Runnable interface instead of extending Thread class. 
+As implementing Runnable makes your code loosely coupled as the code of thread is 
+different from the class that assign job to the thread. It requires less memory and 
+also allows a class to inherit any other class.
+
+
+    
