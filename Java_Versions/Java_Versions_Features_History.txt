@@ -20,8 +20,8 @@ Some of the important java 9 features are;
 
 Java SE 8
 -----------
-Java 8 was released on 18 March 2014. The code name culture is dropped with Java 8 and so no official 
-code name going forward from Java 8.
+Java 8 was released on 18 March 2014. The code name culture is dropped with 
+Java 8 and so no official code name going forward from Java 8.
 New features in Java SE 8
 
     Lambda Expressions
