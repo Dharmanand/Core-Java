@@ -40,6 +40,8 @@ public class StringRegexTest {
 
 	public static void main(String[] args) {
 		String str = "abc     dfgt  fvv   kgmb      .     kalam    123";
+		System.out.println(str.replaceAll("\\s", "")); // Output: abcdfgtfvvkgmb.kalam123
+		System.out.println(str.replaceAll("\\s", " ")); // Output: abc     dfgt  fvv   kgmb      .     kalam    123
 		System.out.println(str.replaceAll("\\s+", " ")); // Output: abc dfgt fvv kgmb . kalam 123
 	}
 
