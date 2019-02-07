@@ -9,10 +9,10 @@ public class EleminateDuplicateElementFromArray {
 
 	public static void main(String[] args) {
 
-		int[] a = { 2, 2, 3, 8, 8, 2, 9, 6 };
+		int[] a = { 2, 2, 0, 0, 3, 8, 8, 2, 9, 6 };
 
 		System.out.println(Arrays.toString(removeDuplicateEntryUsingCollection(a)));
-		System.out.println(Arrays.toString(removeDuplicates(a)));
+		System.out.println(Arrays.toString(removeDuplicatesUsingNestedLoop(a)));
 
 	}
 
@@ -27,7 +27,7 @@ public class EleminateDuplicateElementFromArray {
 		return ints;
 	}
 
-	public static int[] removeDuplicates(int[] a) {
+	public static int[] removeDuplicatesUsingNestedLoop(int[] a) {
 	    int[] output = new int[a.length];
 	    int count = 0;
 	    int num = 0;
@@ -36,7 +36,7 @@ public class EleminateDuplicateElementFromArray {
 	    for(int i=0; i<a.length; i++)
 	    {
 	        num=a[i];
-	        boolean flag = check(output,num);
+	        boolean flag = check(output,num,count);
 	        if(flag==false)
 	        {
 	            output[count]=num;
@@ -47,10 +47,10 @@ public class EleminateDuplicateElementFromArray {
 	    return Arrays.copyOf(output, count);
 	}
 	
-	public static boolean check(int[] arr, int num)
+	public static boolean check(int[] arr, int num, int count)
 	{
 	    boolean flag = false;
-	    for(int i=0;i<arr.length; i++)
+	    for(int i=0;i<count; i++)
 	    {
 	        if(arr[i]==num)
 	        {
