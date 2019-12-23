@@ -6,6 +6,9 @@ public class BubbleSort {
 	 * 
 	 * https://www.java2novice.com/java-sorting-algorithms/bubble-sort/
 	 * 
+	 * Def: It is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted, 
+	 * 		comparing each pair of adjacent items and swapping them if they are in the wrong order.
+	 * 
 	 * Bubble sort has worst-case and average complexity both О(n2), where n is the number of items being sorted. 
 	 * There exist many sorting algorithms with substantially better worst-case or average complexity of O(n log n). 
 	 * Even other О(n2) sorting algorithms, such as insertion sort, tend to have better performance than bubble sort. 
