@@ -18,7 +18,7 @@ package com.kd.sort;
 public class SelectionSort {
 
 	public static void main(String[] args) {
-		int[] arr = { 12, 5, 56, 47, 98, -5, -59 };
+		int[] arr = { 12, 5, 56, 47, 98, -5, -59,0,-1,-6,101 };
 
 		int[] sortedArr = sort(arr);
 		for (int i = 0; i < sortedArr.length; i++)
@@ -27,22 +27,21 @@ public class SelectionSort {
 
 	private static int[] sort(int[] arr) {
 		int size = arr.length;
-		int var = 0;
+		int temp, index=0;
 		for(int i=0; i<size; i++) {
-			int temp = arr[i];
+			temp=arr[i];
 			for(int j=i+1; j<size; j++) {
 				if(arr[j]<temp) {
-					var =  temp;
 					temp = arr[j];
-					arr[j] = var;
+					index = j;
 				}
 			}
 			if(temp < arr[i]) {
-				var =  temp;
 				temp = arr[i];
-				arr[i] = var;
+				arr[i] = arr[index];
+				arr[index] = temp;
 			}
-				
+			
 		}
 		return arr;
 	}
