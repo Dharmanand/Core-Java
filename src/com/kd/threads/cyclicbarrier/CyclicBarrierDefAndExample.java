@@ -31,8 +31,8 @@ public class CyclicBarrierDefAndExample {
 			while(true) {
 				try {
 					Thread.sleep(1000);
-					barrier.await();
-					System.out.println(Thread.currentThread().getName());
+					barrier.await();//Current thread check barrier count(parties) is zero or not. If count > 0 then this thread will wait for other thread initialization and count should be 0.
+					System.out.println(Thread.currentThread().getName());//this part will be executed when all cyclic barrier threads will be initialized. Means barrier count should be 0.
 				} catch (InterruptedException | BrokenBarrierException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -44,8 +44,6 @@ public class CyclicBarrierDefAndExample {
 		service.submit(task);
 		service.submit(task);
 		service.submit(task);	
-		//Main thread wait until all child threads in cyclic barrier will not finish the execution.
-		System.out.println("Main thread has been started when all privious threads will executed their task in cyclic barrier");
 		
 		service.shutdown();
 		service.awaitTermination(1, TimeUnit.MINUTES);
