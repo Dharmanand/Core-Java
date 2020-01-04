@@ -14,8 +14,8 @@ public class ExecuteMultipleThreadsWithUniqueJob {
 //		CopyOnWriteArraySet<Integer> set = new CopyOnWriteArraySet<>();//Performace bies it is not good
 //		ConcurrentSkipListSet<String> set = new ConcurrentSkipListSet<>();//It is faster than CopyOnWriteArraySet, but in search/Iteration It will take little time.
 		
-		Set<Integer> set = new ConcurrentHashMap<Integer, Integer>().newKeySet();//Herecreated cocurrentHashSet using cocurrentHashMap and newKeySet() method. It 	is faster than CopyOnWriteArraySet and ConcurrentSkipListSet.
-		Set<String> set1 = new ConcurrentHashMap<String, Integer>().newKeySet();//Maintain a group of all unique threads during jab executions. 
+		Set<Integer> set = new ConcurrentHashMap<>().newKeySet();//Herecreated cocurrentHashSet using cocurrentHashMap and newKeySet() method. It 	is faster than CopyOnWriteArraySet and ConcurrentSkipListSet.
+		Set<String> set1 = new ConcurrentHashMap<>().newKeySet();//Maintain a group of all unique threads during jab executions. 
 
 		ExecutorService service = Executors.newFixedThreadPool(10000);
 		for (int i = 0; i < 10000; i++) {
