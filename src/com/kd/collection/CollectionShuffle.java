@@ -9,7 +9,7 @@ public class CollectionShuffle {
 		ArrayList<String> mylist = new ArrayList<String>();
 		mylist.add("ide");
 		mylist.add("quiz");
-		mylist.add("geeksforgeeks");
+		mylist.add("kd");
 		mylist.add("quiz");
 		mylist.add("practice");
 		mylist.add("qa");
