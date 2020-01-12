@@ -20,6 +20,8 @@ public class RandomNumberGenerator {
 			mylist.set(i - 1, mylist.set(new RandomNumberGenerator().generateRandomNo(i), mylist.get(i - 1)));
 		}
 		System.out.println("Suffle List : \n" + mylist);
+		
+		System.out.println(new RandomNumberGenerator().generateRandomNo(1));
 
 	}
 
@@ -34,7 +36,7 @@ public class RandomNumberGenerator {
 		if (random < 0)
 			return -random;
 		else if (random == 0 && no == 1)
-			return (int) (new Object().hashCode() % 2);
+			return 0;
 		return random;
 	}
 	
