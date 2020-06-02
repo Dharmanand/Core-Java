@@ -1,6 +1,7 @@
 package com.kd.string;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class StringRepeatableCharCount {
 
@@ -26,12 +27,19 @@ public class StringRepeatableCharCount {
 		
 		char[] chars = str.toCharArray();
 		
+		Map<Character, Integer> map = new HashMap<>();
+		
 		for (int i = 0; i < str.length(); i++) {
 			if(i != str.indexOf(chars[i])) {
+				if(map.get(chars[i]) == null) 
+					map.put(chars[i], 1);
+				else
+					map.put(chars[i], map.get(chars[i])+1);
 				System.out.println(chars[i]);
 			}
 			
 		}
+		System.out.println(map);
 	}
 
 }
