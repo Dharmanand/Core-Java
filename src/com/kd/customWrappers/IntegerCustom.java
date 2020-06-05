@@ -4,7 +4,7 @@ public class IntegerCustom {
 
 	private static int j;
 
-	public static int valueOf(String str) throws RuntimeException {
+	public static int valueOf(String str) {
 
 		boolean isNegative = str.startsWith("-");
 		int i = 0;
