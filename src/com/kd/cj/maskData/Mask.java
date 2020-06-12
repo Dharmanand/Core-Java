@@ -2,55 +2,60 @@ package com.kd.cj.maskData;
 
 public class Mask {
 
+	private static final String MASK_CHARSEQUENCE = "*****";
+
 	public static String maskData(Object input) {
-		if(input == null)
+		if (input == null)
 			return null;
-		if (input instanceof Character || input instanceof Boolean || input instanceof CharSequence || input instanceof Number) {
-			return masking(input.toString());
+		if (input instanceof Character || input instanceof Boolean || input instanceof CharSequence
+				|| input instanceof Number) {
+//			return masking(input.toString());
+			return MASK_CHARSEQUENCE;
 		} else
-			throw new RuntimeException(input.getClass()+" : does not belongs to correct data type");
-	}
-	
-	public static String maskData(char input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(short input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(byte input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(int input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(long input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(float input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(double input) {
-		return masking(String.valueOf(input));
-	}
-	
-	public static String maskData(boolean input) {
-		return masking(String.valueOf(input));
+			throw new RuntimeException(input.getClass() + " : does not belongs to correct data type");
 	}
 
-	private static String masking(String input) {
-		StringBuffer buffer = new StringBuffer();
-		for (int i = 0; i < input.length(); i++)
-			buffer.append("*");
-		return buffer.toString();
+	public static String maskData(char input) {
+		return MASK_CHARSEQUENCE;
 	}
-	
-	
+
+	public static String maskData(short input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	public static String maskData(byte input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	public static String maskData(int input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	public static String maskData(long input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	public static String maskData(float input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	public static String maskData(double input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	public static String maskData(boolean input) {
+		return MASK_CHARSEQUENCE;
+	}
+
+	/*
+	 * private static String masking(String input) {
+	 * 
+	 * StringBuffer buffer = new StringBuffer(); for (int i = 0; i < input.length();
+	 * i++) buffer.append("*"); return buffer.toString();
+	 * 
+	 * }
+	 */
+
 	public static void main(String[] args) {
 		System.out.println("----Wrapper types---");
 		String name = new String();
@@ -71,7 +76,7 @@ public class Mask {
 		System.out.println(maskData(d));
 		Boolean flag = true;
 		System.out.println(maskData(flag));
-		
+
 		System.out.println("----primitive types---");
 		char ch1 = 'a';
 		System.out.println(maskData(ch1));
