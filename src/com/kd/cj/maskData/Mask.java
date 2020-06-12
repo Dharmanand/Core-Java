@@ -12,7 +12,7 @@ public class Mask {
 //			return masking(input.toString());
 			return MASK_CHARSEQUENCE;
 		} else
-			throw new RuntimeException(input.getClass() + " : does not belongs to correct data type");
+			throw new RuntimeException(input.getClass().getName() + " : does not belongs to correct data type");
 	}
 
 	public static String maskData(char input) {
@@ -58,6 +58,10 @@ public class Mask {
 
 	public static void main(String[] args) {
 		System.out.println("----Wrapper types---");
+		Person person = null;
+		System.out.println(maskData(person));
+		person = new Person();
+		System.out.println(maskData(person));
 		String name = new String();
 		System.out.println(maskData(name));
 		Character ch = new Character(' ');
