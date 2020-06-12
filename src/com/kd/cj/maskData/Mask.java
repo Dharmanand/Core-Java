@@ -60,8 +60,8 @@ public class Mask {
 		System.out.println("----Wrapper types---");
 		Person person = null;
 		System.out.println(maskData(person));
-		person = new Person();
-		System.out.println(maskData(person));
+//		person = new Person();
+//		System.out.println(maskData(person));
 		String name = new String();
 		System.out.println(maskData(name));
 		Character ch = new Character(' ');
