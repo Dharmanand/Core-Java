@@ -26,7 +26,7 @@ public class LevelOrderTraversal {
 		root.right.right.left = new Node(14);
 		root.right.right.right = new Node(15);
 
-		System.out.println(traversal(root));
+		System.out.println(traversal(root)); //Output : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 	}
 
 	static List<Integer> traversal(Node node) {
