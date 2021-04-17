@@ -23,7 +23,7 @@ public class DepthFirstSearch {
 		root.right.right.left = new Node(14);
 		root.right.right.right = new Node(15);
 
-		System.out.println(traversal(root));
+		System.out.println(traversal(root));//output : [1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 12, 13, 7, 14, 15]
 	}
 
 	static List<Integer> traversal(Node root){
