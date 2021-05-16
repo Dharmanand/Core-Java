@@ -6,7 +6,7 @@ import java.util.List;
 
 // https://www.youtube.com/watch?v=thkuu_FWFD8
 public class PrintLeftNodeFromTree {
-
+	
 	public static void main(String[] args) {
 		
 		Node root = new Node(1);
