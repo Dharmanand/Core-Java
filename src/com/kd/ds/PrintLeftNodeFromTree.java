@@ -23,7 +23,7 @@ public class PrintLeftNodeFromTree {
 	}
 
 	
-	// Using recursion, Complexity is O(N*N)
+	// Using recursion, Complexity is O(N)
 	private static void collectLeftSideNodes(Node root, List<Integer> list) {
 
 		if(root == null)
