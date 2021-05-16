@@ -17,29 +17,28 @@ public class PrintLeftNodeFromTree {
 		root.right.left = new Node(5);
 		root.right.right = new Node(6);
 
+		new PrintLeftNodeFromTree().getLeftViewOfTreeUsingLevel(root, 1); // 1st method to get left view of Tree
+		System.out.println();
 		List<Integer> list = new ArrayList<>();
-		collectLeftSideNodes(root, list); //	1st method to get left view of Tree
+		collectLeftSideNodes(root, list); //	2nd method to get left view of Tree
 		System.out.println(list);
 
-		list = new ArrayList<>();
-		new PrintLeftNodeFromTree().getLeftViewOfTreeUsingLevel(root, 1, list); // 2nd method to get left view of Tree
-		System.out.println(list);
 	}
 
 //	1st method to get left view of Tree, Complexity is O(N)
-	private void getLeftViewOfTreeUsingLevel(Node node, int currentLevel, List<Integer> list) {
+	private void getLeftViewOfTreeUsingLevel(Node node, int currentLevel) {
 
 		if (node == null)
 			return;
 		if (level < currentLevel) {
-			list.add(node.data);
+			System.out.print(node.data+" ");
 			level = currentLevel;
 		}
-		getLeftViewOfTreeUsingLevel(node.left, currentLevel + 1, list);
-		getLeftViewOfTreeUsingLevel(node.right, currentLevel + 1, list);
+		getLeftViewOfTreeUsingLevel(node.left, currentLevel + 1);
+		getLeftViewOfTreeUsingLevel(node.right, currentLevel + 1);
 	}
 
-// 2nd method to get left view of Tree , Complexity is O(N)
+// 2nd method to get left view of Tree , Complexity is O(N), not considering space complexity for list
 	private static void collectLeftSideNodes(Node root, List<Integer> list) {
 
 		if (root == null)
