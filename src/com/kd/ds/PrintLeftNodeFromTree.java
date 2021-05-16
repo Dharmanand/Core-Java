@@ -19,13 +19,12 @@ public class PrintLeftNodeFromTree {
 		List<Integer> list = new ArrayList<>();
 		collectLeftSideNodes(root, list);
 		System.out.println(list);
-
 	}
 
 	
 	// Using recursion, Complexity is O(N)
 	private static void collectLeftSideNodes(Node root, List<Integer> list) {
-
+		
 		if(root == null)
 			return ;
 		list.add(root.data);
