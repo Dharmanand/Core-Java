@@ -1,7 +1,7 @@
 package com.kd.ds;
 
 public class Node {
-	int data;
+	Integer data;
 	Node left, right;
 
 	Node(int item) {
