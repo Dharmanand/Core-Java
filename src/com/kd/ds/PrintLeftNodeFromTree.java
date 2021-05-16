@@ -6,7 +6,7 @@ import java.util.List;
 // https://www.youtube.com/watch?v=thkuu_FWFD8
 public class PrintLeftNodeFromTree {
 
-	int currentLevel = 0;
+	int level = 0;
 
 	public static void main(String[] args) {
 
@@ -27,16 +27,16 @@ public class PrintLeftNodeFromTree {
 	}
 
 //	1st method to get left view of Tree, Complexity is O(N)
-	private void getLeftViewOfTreeUsingLevel(Node node, int level, List<Integer> list) {
+	private void getLeftViewOfTreeUsingLevel(Node node, int currentLevel, List<Integer> list) {
 
 		if (node == null)
 			return;
-		if (currentLevel < level) {
+		if (level < currentLevel) {
 			list.add(node.data);
-			currentLevel = level;
+			level = currentLevel;
 		}
-		getLeftViewOfTreeUsingLevel(node.left, level + 1, list);
-		getLeftViewOfTreeUsingLevel(node.right, level + 1, list);
+		getLeftViewOfTreeUsingLevel(node.left, currentLevel + 1, list);
+		getLeftViewOfTreeUsingLevel(node.right, currentLevel + 1, list);
 	}
 
 // 2nd method to get left view of Tree , Complexity is O(N)
